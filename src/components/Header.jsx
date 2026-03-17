@@ -1,13 +1,23 @@
-import { Link } from "react-router"
+// import { Link } from "react-router"
+import { NavLink } from "react-router"
+import { PawPrint  } from "lucide-react"
+
+function linkClass({isActive}) {
+    return isActive ? "border-b-2 border-white" : "text-blue-500 hover:text-blue-500"
+}
 
 function Header() {
     return (
-        <header className="bg-gray-800 text-gray-400 py-6 text-center text-sm">       
-            <h1>MyApp</h1>
+        <header className="bg-gray-800 text-gray-400 py-6 text-center text-sm space-x-2">       
+            <h1>
+                MyApp
+                <PawPrint  className="inline size-8 m-1 fill-amber-200 stroke-blue-800 stroke-2" />
+            </h1>
 
-            <Link to="/" className="text-gray-600 hover:text-blue-600 m-1">Início</Link>
-            <Link to="/contato" className="text-gray-600 hover:text-blue-600 m-1">Contato</Link>
-            <Link to="/sobre" className="text-gray-600 hover:text-blue-600 m-1">Sobre</Link>
+            <NavLink to="/" className={linkClass}>Início</NavLink>
+            <NavLink to="/contato" className={linkClass}>Contato</NavLink>
+            <NavLink to="/sobre" className={linkClass}>Sobre</NavLink>
+            <NavLink to="/login" className={linkClass}>Login</NavLink>
         </header>
     )
 }
